@@ -1,0 +1,13 @@
+.display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 6fr 1fr 1fr;
+
+    margin: auto 30vw auto 30vw;
+}
+.digit {
+    min-height: 10rem;
+    min-width: 5rem;
+    text-align: center;
+    font-size: 10rem;
+}
