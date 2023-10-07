@@ -3,37 +3,100 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Code Breaker</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
     </head>
-    <body>
+    <body >
         <header></header>
         <main>
             <div class="display">
-                <div class="increment" id="increment_1">
-                    <button>^</button>
+                <div class="circle_display" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 4;">
+                    <button id="dial_head" onclick="clickDial()">
+                        <div id="dial_inset">
+                            <div id="dial_handle"></div>
+                        </div>
+                    </button>
                 </div>
-                <div class="increment" id="increment_2">
-                    <button>^</button>
-                </div>
-                <div class="increment" id="increment_3">
-                    <button>^</button>
-                </div>
-                <div class="digit" id="digit_1">9</div>
-                <div class="digit" id="digit_2">9</div>
-                <div class="digit" id="digit_3">9</div>
-                <div class="decrement" id="decrement_1">
-                    <button>^</button>
-                </div>
-                <div class="decrement" id="decrement_2">
-                    <button>^</button>
-                </div>
-                <div class="decrement" id="decrement_3">
-                    <button>^</button>
+                
+        <div class="crement">
+            <button onclick="crement(0, 'increment')">
+                <div class="increment"></div>
+            </button>
+        </div>
+        
+        <div class="crement">
+            <button onclick="crement(1, 'increment')">
+                <div class="increment"></div>
+            </button>
+        </div>
+        
+        <div class="crement">
+            <button onclick="crement(2, 'increment')">
+                <div class="increment"></div>
+            </button>
+        </div>
+        
+                <div class="digit" id="digit_1" style="--value: -1;">-1</div>
+                <div class="digit" id="digit_2" style="--value: -1;">-1</div>
+                <div class="digit" id="digit_3" style="--value: -1;">-1</div>
+                
+        <div class="crement">
+            <button onclick="crement(0, 'decrement')">
+                <div class="decrement"></div>
+            </button>
+        </div>
+        
+        <div class="crement">
+            <button onclick="crement(1, 'decrement')">
+                <div class="decrement"></div>
+            </button>
+        </div>
+        
+        <div class="crement">
+            <button onclick="crement(2, 'decrement')">
+                <div class="decrement"></div>
+            </button>
+        </div>
+        
+                <div class="circle_display" style="grid-column-start: 5; grid-column-end: 6; grid-row-start: 1; grid-row-end: 4;">
+                    <div id="mistakes">
+                        <div id="mistake_display">
+                            
+        <div class="mistake_sector" style="--size: 7;--index: 0;">
+            <div class="mistake_sector_display" id="mistake_sector_display_0" off></div>
+        </div>
+        
+        <div class="mistake_sector" style="--size: 7;--index: 1;">
+            <div class="mistake_sector_display" id="mistake_sector_display_1" off></div>
+        </div>
+        
+        <div class="mistake_sector" style="--size: 7;--index: 2;">
+            <div class="mistake_sector_display" id="mistake_sector_display_2" off></div>
+        </div>
+        
+        <div class="mistake_sector" style="--size: 7;--index: 3;">
+            <div class="mistake_sector_display" id="mistake_sector_display_3" off></div>
+        </div>
+        
+        <div class="mistake_sector" style="--size: 7;--index: 4;">
+            <div class="mistake_sector_display" id="mistake_sector_display_4" off></div>
+        </div>
+        
+        <div class="mistake_sector" style="--size: 7;--index: 5;">
+            <div class="mistake_sector_display" id="mistake_sector_display_5" off></div>
+        </div>
+        
+        <div class="mistake_sector" style="--size: 7;--index: 6;">
+            <div class="mistake_sector_display" id="mistake_sector_display_6" off></div>
+        </div>
+        
+                        </div>
+                    </div>
                 </div>
                 <div
                     class="computer"
-                    style="grid-column-start: 1; grid-column-end: 4"
+                    style="grid-column-start: 1; grid-column-end: 4;"
                 >
                     AAAAAAAAAAAAa
                 </div>

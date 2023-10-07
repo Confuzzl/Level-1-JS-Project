@@ -1,13 +1,146 @@
 .display {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 6fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 6fr 1fr;
 
     margin: auto 30vw auto 30vw;
 }
+
 .digit {
     min-height: 10rem;
     min-width: 5rem;
     text-align: center;
     font-size: 10rem;
+}
+
+.crement>button {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+}
+
+.increment {
+    margin: auto;
+
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid gray;
+}
+
+.decrement {
+    margin: auto;
+
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-top: 1rem solid gray;
+}
+
+.circle_display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dial_head {
+    aspect-ratio: 1;
+    width: 100%;
+    background-color: darkgray;
+    box-sizing: border-box;
+    outline: 0.6vw gainsboro outset;
+    outline-offset: -0.6vw;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 0;
+    padding: 0;
+}
+
+#dial_inset {
+    aspect-ratio: 1;
+    width: 60%;
+    background-color: gray;
+    outline: 0.4vw #555 solid;
+    outline-offset: -0.4vw;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+#dial_handle {
+    position: absolute;
+    width: 110%;
+    height: 40%;
+    background-color: darkgray;
+}
+
+#mistakes {
+    aspect-ratio: 1;
+    width: 100%;
+    background-color: black;
+    outline: 0.5vw gray outset;
+    outline-offset: -0.5vw;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mistake_display {
+    aspect-ratio: 1;
+    width: 80%;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+.mistake_sector[style*="--size"][style*="--index"] {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+
+    transform-origin: 0% 100%;
+    transform: rotate(calc(var(--index) * calc(360deg / var(--size)))) skewY(calc(calc(360deg / var(--size)) - 90deg));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mistake_sector_display {
+    width: 90%;
+    height: 90%;
+}
+
+.mistake_sector_display[on] {
+    background-color: red;
+}
+
+.mistake_sector_display[off] {
+    background-color: #440000;
+}
+
+.mistake_sector_display[disarmed] {
+    background-color: lime;
 }
