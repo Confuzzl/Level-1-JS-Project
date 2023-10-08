@@ -6,8 +6,9 @@
         <title>Code Breaker</title>
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script>
+        <link href="https://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
     </head>
-    <body >
+    <body onload="initialize()">
         <header></header>
         <main>
             <div class="display">
@@ -20,42 +21,163 @@
                 </div>
                 
         <div class="crement">
-            <button onclick="crement(0, 'increment')">
-                <div class="increment"></div>
+            <button onclick="crement(0, 'in')">
+                <div class="in crement_arrow"></div>
             </button>
         </div>
         
         <div class="crement">
-            <button onclick="crement(1, 'increment')">
-                <div class="increment"></div>
+            <button onclick="crement(1, 'in')">
+                <div class="in crement_arrow"></div>
             </button>
         </div>
         
         <div class="crement">
-            <button onclick="crement(2, 'increment')">
-                <div class="increment"></div>
+            <button onclick="crement(2, 'in')">
+                <div class="in crement_arrow"></div>
             </button>
         </div>
         
-                <div class="digit" id="digit_1" style="--value: -1;">-1</div>
-                <div class="digit" id="digit_2" style="--value: -1;">-1</div>
-                <div class="digit" id="digit_3" style="--value: -1;">-1</div>
+                
+        <div class="digit_display" id="digit_1" style="--value: -1;">
+            <div class="digit">
+                
+        <div class="segment_x segment_0">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_1">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_2">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_x segment_3">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_4">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_5">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_x segment_6">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+            </div>
+        </div>
+        
+        <div class="digit_display" id="digit_2" style="--value: -1;">
+            <div class="digit">
+                
+        <div class="segment_x segment_0">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_1">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_2">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_x segment_3">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_4">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_5">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_x segment_6">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+            </div>
+        </div>
+        
+        <div class="digit_display" id="digit_3" style="--value: -1;">
+            <div class="digit">
+                
+        <div class="segment_x segment_0">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_1">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_2">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_x segment_3">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_4">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_y segment_5">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+        <div class="segment_x segment_6">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        
+            </div>
+        </div>
+        
                 
         <div class="crement">
-            <button onclick="crement(0, 'decrement')">
-                <div class="decrement"></div>
+            <button onclick="crement(0, 'de')">
+                <div class="de crement_arrow"></div>
             </button>
         </div>
         
         <div class="crement">
-            <button onclick="crement(1, 'decrement')">
-                <div class="decrement"></div>
+            <button onclick="crement(1, 'de')">
+                <div class="de crement_arrow"></div>
             </button>
         </div>
         
         <div class="crement">
-            <button onclick="crement(2, 'decrement')">
-                <div class="decrement"></div>
+            <button onclick="crement(2, 'de')">
+                <div class="de crement_arrow"></div>
             </button>
         </div>
         
@@ -92,13 +214,20 @@
         </div>
         
                         </div>
+                        <button id="reset_wrapper" style="display: none;" onclick="initialize()">
+                            <div id="reset">
+                                <div id="reset_arrow_wrapper">
+                                    <div id="reset_arrow"></div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
                 </div>
                 <div
-                    class="computer"
-                    style="grid-column-start: 1; grid-column-end: 4;"
+                    id="computer"
+                    style="grid-column-start: 2; grid-column-end: 5;"
                 >
-                    AAAAAAAAAAAAa
+                    <div id="response"></div>
                 </div>
             </div>
         </main>

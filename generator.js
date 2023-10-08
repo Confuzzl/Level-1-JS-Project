@@ -12,8 +12,9 @@ fs.writeFile(
         <title>Code Breaker</title>
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script>
+        <link href="https://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
     </head>
-    <body >
+    <body onload="initialize()">
         <header></header>
         <main>
             <div class="display">
@@ -24,23 +25,28 @@ fs.writeFile(
                         </div>
                     </button>
                 </div>
-                ${createButtons("increment")}
-                <div class="digit" id="digit_1" style="--value: -1;">-1</div>
-                <div class="digit" id="digit_2" style="--value: -1;">-1</div>
-                <div class="digit" id="digit_3" style="--value: -1;">-1</div>
-                ${createButtons("decrement")}
+                ${createButtons("in")}
+                ${createDigits()}
+                ${createButtons("de")}
                 <div class="circle_display" style="grid-column-start: 5; grid-column-end: 6; grid-row-start: 1; grid-row-end: 4;">
                     <div id="mistakes">
                         <div id="mistake_display">
                             ${createMistakeSectors()}
                         </div>
+                        <button id="reset_wrapper" style="display: none;" onclick="initialize()">
+                            <div id="reset">
+                                <div id="reset_arrow_wrapper">
+                                    <div id="reset_arrow"></div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
                 </div>
                 <div
-                    class="computer"
-                    style="grid-column-start: 1; grid-column-end: 4;"
+                    id="computer"
+                    style="grid-column-start: 2; grid-column-end: 5;"
                 >
-                    AAAAAAAAAAAAa
+                    <div id="response"></div>
                 </div>
             </div>
         </main>
@@ -59,7 +65,7 @@ function createButtons(crement) {
         buttons += /*html*/ `
         <div class="crement">
             <button onclick="crement(${i}, '${crement}')">
-                <div class="${crement}"></div>
+                <div class="${crement} crement_arrow"></div>
             </button>
         </div>
         `;
@@ -78,4 +84,32 @@ function createMistakeSectors() {
         `;
     }
     return sectors;
+}
+
+function createSegments() {
+    let segments = ``;
+    for (let i = 0; i < 7; i++) {
+        let direction = i % 3 == 0 ? "x" : "y";
+        segments += /*html*/ `
+        <div class="segment_${direction} segment_${i}">
+            <div class="segment_a" off></div>
+            <div class="segment_b" off></div>
+        </div>
+        `;
+    }
+    return segments;
+}
+
+function createDigits() {
+    let digits = ``;
+    for (let i = 0; i < 3; i++) {
+        digits += /*html*/ `
+        <div class="digit_display" id="digit_${i + 1}" style="--value: -1;">
+            <div class="digit">
+                ${createSegments()}
+            </div>
+        </div>
+        `;
+    }
+    return digits;
 }
